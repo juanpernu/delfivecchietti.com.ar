@@ -3,6 +3,8 @@ import React, { ReactNode } from "react";
 import Head from "next/head";
 import { MainNav } from "@/components/main-nav";
 
+import "./globals.css";
+
 type Props = {
   children?: ReactNode;
   title?: string;
