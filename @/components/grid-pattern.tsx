@@ -15,9 +15,9 @@ function Block({ x, y, ...props }) {
 
 export function GridPattern({ yOffset = 0, interactive = false, ...props }) {
   let id = useId();
-  let ref = useRef();
-  let currentBlock = useRef();
-  let counter = useRef(0);
+  let ref = useRef<SVGSVGElement>();
+  let currentBlock = useRef<number[]>();
+  let counter = useRef<number>(0);
   let [hoveredBlocks, setHoveredBlocks] = useState([]);
   let staticBlocks = [
     [1, 1],
