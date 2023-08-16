@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Link from "next/link";
-
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -12,7 +11,7 @@ import {
 } from "components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 
-export function MainNav() {
+export const MainNav: React.FC = () => {
   return (
     <NavigationMenu>
       <NavigationMenuList>

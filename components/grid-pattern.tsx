@@ -3,7 +3,25 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-function Block({ x, y, ...props }) {
+type IBlock = {
+  x?: number;
+  y?: number;
+  animate?: {
+    opacity: number[];
+  };
+  transition?: {
+    duration: number;
+    times: number[];
+  };
+  onAnimationComplete?: () => void;
+};
+type IGridPattern = {
+  yOffset: number;
+  interactive: boolean;
+  className?: string;
+};
+
+const Block: React.FC<IBlock> = ({ x, y, ...props }) => {
   return (
     <motion.path
       transform={`translate(${-32 * y + 96 * x} ${160 * y})`}
@@ -11,9 +29,13 @@ function Block({ x, y, ...props }) {
       {...props}
     />
   );
-}
+};
 
-export function GridPattern({ yOffset = 0, interactive = false, ...props }) {
+export const GridPattern: React.FC<IGridPattern> = ({
+  yOffset = 0,
+  interactive = false,
+  ...props
+}) => {
   let id = useId();
   let ref = useRef<SVGSVGElement>();
   let currentBlock = useRef<number[]>();
@@ -33,7 +55,7 @@ export function GridPattern({ yOffset = 0, interactive = false, ...props }) {
       return;
     }
 
-    function onMouseMove(event) {
+    const onMouseMove: { (event: MouseEvent) } = (event: MouseEvent) => {
       if (!ref.current) {
         return;
       }
@@ -63,7 +85,7 @@ export function GridPattern({ yOffset = 0, interactive = false, ...props }) {
           (block) => !(block[0] === x && block[1] === y && block[2] !== key)
         );
       });
-    }
+    };
 
     window.addEventListener("mousemove", onMouseMove);
 
@@ -109,4 +131,4 @@ export function GridPattern({ yOffset = 0, interactive = false, ...props }) {
       </defs>
     </svg>
   );
-}
+};
