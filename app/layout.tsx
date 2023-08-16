@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import { cn } from "@/lib/utils";
-import { RootLayout } from "@components/root-layout";
+import { RootLayout } from "components/root-layout";
 import "./globals.css";
 
 const inter = Raleway({

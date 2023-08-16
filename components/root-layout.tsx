@@ -4,8 +4,8 @@ import { useState, useId, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, MotionConfig, useReducedMotion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { GridPattern } from "@/components/grid-pattern";
+import { Button } from "components/ui/button";
+import { GridPattern } from "components/grid-pattern";
 import { cn } from "@/lib/utils";
 
 function XIcon(props) {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import React, { ReactNode } from "react";
 import Head from "next/head";
-import { MainNav } from "@/components/main-nav";
+import { MainNav } from "components/main-nav";
 
 type Props = {
   children?: ReactNode;
